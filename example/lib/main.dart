@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:audio_modulator_example/voice_type.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isPlaying = false;
   final _audioModulatorPlugin = AudioModulator();
 
   Future<String> moveAssetToTempDirectory(String assetPath) async {
@@ -34,25 +36,122 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Audio Modulator Example'),
         ),
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () async {
-                  final path =
-                      await moveAssetToTempDirectory("assets/audio/audio.mp3");
-                  _audioModulatorPlugin.playAudio(
-                      path: path, pitch: -800, speed: 1);
-                },
-                child: const Text("Play Audio"),
-              ),
-              TextButton(
-                onPressed: () async {
-                  _audioModulatorPlugin.stopAudio();
-                },
-                child: const Text("Stop Audio"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: isPlaying
+                            ? () {
+                                setState(() {
+                                  isPlaying = false;
+                                });
+                                _audioModulatorPlugin.stopAudio();
+                              }
+                            : () async {
+                                setState(() {
+                                  isPlaying = true;
+                                });
+                                final path = await moveAssetToTempDirectory(
+                                    "assets/audio/audio.mp3");
+                                _audioModulatorPlugin.playAudio(
+                                    path: path,
+                                    pitch: VoiceType.devil,
+                                    speed: 1);
+                              },
+                        icon: isPlaying
+                            ? const Icon(
+                                Icons.stop,
+                                size: 50,
+                              )
+                            : const Icon(
+                                Icons.play_arrow_rounded,
+                                size: 50,
+                              ),
+                      ),
+                      const Text("Devil"),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: isPlaying
+                            ? () {
+                                setState(() {
+                                  isPlaying = false;
+                                });
+                                _audioModulatorPlugin.stopAudio();
+                              }
+                            : () async {
+                                setState(() {
+                                  isPlaying = true;
+                                });
+                                final path = await moveAssetToTempDirectory(
+                                    "assets/audio/audio.mp3");
+                                _audioModulatorPlugin.playAudio(
+                                    path: path, pitch: 1, speed: 1);
+                              },
+                        icon: isPlaying
+                            ? const Icon(
+                                Icons.stop,
+                                size: 50,
+                              )
+                            : const Icon(
+                                Icons.play_arrow_rounded,
+                                size: 50,
+                              ),
+                      ),
+                      const Text("Normal"),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: isPlaying
+                            ? () {
+                                setState(() {
+                                  isPlaying = false;
+                                });
+                                _audioModulatorPlugin.stopAudio();
+                              }
+                            : () async {
+                                setState(() {
+                                  isPlaying = true;
+                                });
+                                final path = await moveAssetToTempDirectory(
+                                    "assets/audio/audio.mp3");
+                                _audioModulatorPlugin.playAudio(
+                                    path: path,
+                                    pitch: VoiceType.chipmunk,
+                                    speed: 1);
+                              },
+                        icon: isPlaying
+                            ? const Icon(
+                                Icons.stop,
+                                size: 50,
+                              )
+                            : const Icon(
+                                Icons.play_arrow_rounded,
+                                size: 50,
+                              ),
+                      ),
+                      const Text("Chipmunk"),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
