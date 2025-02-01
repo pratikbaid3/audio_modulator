@@ -1,7 +1,7 @@
 name: audio_modulator
-description: "A new Flutter project."
-version: 0.0.1
-homepage:
+description: "The Audio Modulator package provides an easy way to play and modulate audio files in Flutter applications with the option to alter the pitch and speed."
+version: 0.0.2
+homepage: https://github.com/pratikbaid3/audio_modulator
 
 environment:
   sdk: ^3.5.3
