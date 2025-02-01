@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:flutter/services.dart';
 import 'package:audio_modulator/audio_modulator.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,35 +18,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
   final _audioModulatorPlugin = AudioModulator();
 
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
+  Future<String> moveAssetToTempDirectory(String assetPath) async {
+    // Load the asset file
+    final byteData = await rootBundle.load(assetPath);
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _audioModulatorPlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
+    // Get the temporary directory
+    final tempDir = await getTemporaryDirectory();
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
+    // Create a file in the temporary directory
+    final file = File('${tempDir.path}/${assetPath.split('/').last}');
 
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+    // Write the asset file to the temporary directory
+    await file.writeAsBytes(byteData.buffer
+        .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+
+    // Return the file path
+    return file.path;
   }
 
   @override
@@ -55,7 +46,25 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: [
+              TextButton(
+                onPressed: () async {
+                  final path =
+                      await moveAssetToTempDirectory("assets/audio/audio.mp3");
+                  _audioModulatorPlugin.playAudio(
+                      path: path, pitch: -700, speed: 1);
+                },
+                child: const Text("Play Audio"),
+              ),
+              TextButton(
+                onPressed: () async {
+                  _audioModulatorPlugin.stopAudio();
+                },
+                child: const Text("Stop Audio"),
+              ),
+            ],
+          ),
         ),
       ),
     );
