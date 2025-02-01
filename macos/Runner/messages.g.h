@@ -40,7 +40,7 @@ typedef NS_ENUM(NSUInteger, PGNCode) {
 NSObject<FlutterMessageCodec> *PGNGetMessagesCodec(void);
 
 @protocol PGNExampleHostApi
-- (void)playAudioPath:(NSString *)path pitch:(NSInteger)pitch speed:(NSInteger)speed error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)playAudioPath:(NSString *)path pitch:(double)pitch speed:(NSInteger)speed error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)stopAudioWithError:(FlutterError *_Nullable *_Nonnull)error;
 @end
 

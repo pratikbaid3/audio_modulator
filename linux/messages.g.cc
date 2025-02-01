@@ -289,7 +289,7 @@ static void audio_modulator_example_host_api_play_audio_cb(FlBasicMessageChannel
   FlValue* value0 = fl_value_get_list_value(message_, 0);
   const gchar* path = fl_value_get_string(value0);
   FlValue* value1 = fl_value_get_list_value(message_, 1);
-  int64_t pitch = fl_value_get_int(value1);
+  double pitch = fl_value_get_float(value1);
   FlValue* value2 = fl_value_get_list_value(message_, 2);
   int64_t speed = fl_value_get_int(value2);
   g_autoptr(AudioModulatorExampleHostApiPlayAudioResponse) response = self->vtable->play_audio(path, pitch, speed, self->user_data);

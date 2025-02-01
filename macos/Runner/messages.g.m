@@ -148,7 +148,7 @@ void SetUpPGNExampleHostApiWithSuffix(id<FlutterBinaryMessenger> binaryMessenger
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray<id> *args = message;
         NSString *arg_path = GetNullableObjectAtIndex(args, 0);
-        NSInteger arg_pitch = [GetNullableObjectAtIndex(args, 1) integerValue];
+        double arg_pitch = [GetNullableObjectAtIndex(args, 1) doubleValue];
         NSInteger arg_speed = [GetNullableObjectAtIndex(args, 2) integerValue];
         FlutterError *error;
         [api playAudioPath:arg_path pitch:arg_pitch speed:arg_speed error:&error];

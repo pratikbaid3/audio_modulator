@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                   final path =
                       await moveAssetToTempDirectory("assets/audio/audio.mp3");
                   _audioModulatorPlugin.playAudio(
-                      path: path, pitch: -700, speed: 1);
+                      path: path, pitch: -800, speed: 1);
                 },
                 child: const Text("Play Audio"),
               ),

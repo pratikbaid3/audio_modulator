@@ -16,7 +16,7 @@ public class AudioModulatorPlugin: NSObject, FlutterPlugin, ExampleHostApi{
         ExampleHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: instance)
     }
 
-    public func playAudio(_ path: String, pitch: Int64, speed: Int64) throws  {
+    public func playAudio(_ path: String, pitch: Double, speed: Int64) throws  {
         pitchControl.pitch = Float(pitch)
         speedControl.rate = Float(speed)
         configureAudioEngine(localURL:path)

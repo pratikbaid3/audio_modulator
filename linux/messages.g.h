@@ -135,7 +135,7 @@ AudioModulatorExampleHostApiStopAudioResponse* audio_modulator_example_host_api_
  * Table of functions exposed by ExampleHostApi to be implemented by the API provider.
  */
 typedef struct {
-  AudioModulatorExampleHostApiPlayAudioResponse* (*play_audio)(const gchar* path, int64_t pitch, int64_t speed, gpointer user_data);
+  AudioModulatorExampleHostApiPlayAudioResponse* (*play_audio)(const gchar* path, double pitch, int64_t speed, gpointer user_data);
   AudioModulatorExampleHostApiStopAudioResponse* (*stop_audio)(gpointer user_data);
 } AudioModulatorExampleHostApiVTable;
 

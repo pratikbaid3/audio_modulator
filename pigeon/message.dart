@@ -9,8 +9,7 @@ import 'package:pigeon/pigeon.dart';
   gobjectHeaderOut: 'linux/messages.g.h',
   gobjectSourceOut: 'linux/messages.g.cc',
   gobjectOptions: GObjectOptions(),
-  kotlinOut:
-      'android/app/src/main/kotlin/dev/flutter/pigeon_example_app/Messages.g.kt',
+  kotlinOut: 'android/src/main/kotlin/Messages.g.kt',
   kotlinOptions: KotlinOptions(),
   javaOut: 'android/app/src/main/java/io/flutter/plugins/Messages.java',
   javaOptions: JavaOptions(),
@@ -35,7 +34,7 @@ class MessageData {
 @HostApi()
 abstract class ExampleHostApi {
   @SwiftFunction('playAudio(_:pitch:speed:)')
-  void playAudio(String path, int pitch, int speed);
+  void playAudio(String path, double pitch, int speed);
 
   void stopAudio();
 }

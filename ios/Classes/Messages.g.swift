@@ -148,7 +148,7 @@ class MessagesPigeonCodec: FlutterStandardMessageCodec, @unchecked Sendable {
 
 /// Generated protocol from Pigeon that represents a handler of messages from Flutter.
 protocol ExampleHostApi {
-  func playAudio(_ path: String, pitch: Int64, speed: Int64) throws
+  func playAudio(_ path: String, pitch: Double, speed: Int64) throws
   func stopAudio() throws
 }
 
@@ -163,7 +163,7 @@ class ExampleHostApiSetup {
       playAudioChannel.setMessageHandler { message, reply in
         let args = message as! [Any?]
         let pathArg = args[0] as! String
-        let pitchArg = args[1] as! Int64
+        let pitchArg = args[1] as! Double
         let speedArg = args[2] as! Int64
         do {
           try api.playAudio(pathArg, pitch: pitchArg, speed: speedArg)

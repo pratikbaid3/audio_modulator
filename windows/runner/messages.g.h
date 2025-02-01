@@ -132,7 +132,7 @@ class ExampleHostApi {
   virtual ~ExampleHostApi() {}
   virtual std::optional<FlutterError> PlayAudio(
     const std::string& path,
-    int64_t pitch,
+    double pitch,
     int64_t speed) = 0;
   virtual std::optional<FlutterError> StopAudio() = 0;
 

@@ -187,7 +187,7 @@ void ExampleHostApi::SetUp(
             reply(WrapError("pitch_arg unexpectedly null."));
             return;
           }
-          const int64_t pitch_arg = encodable_pitch_arg.LongValue();
+          const auto& pitch_arg = std::get<double>(encodable_pitch_arg);
           const auto& encodable_speed_arg = args.at(2);
           if (encodable_speed_arg.IsNull()) {
             reply(WrapError("speed_arg unexpectedly null."));

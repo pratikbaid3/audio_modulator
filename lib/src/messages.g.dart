@@ -102,7 +102,7 @@ class ExampleHostApi {
 
   final String pigeonVar_messageChannelSuffix;
 
-  Future<void> playAudio(String path, int pitch, int speed) async {
+  Future<void> playAudio(String path, double pitch, int speed) async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.audio_modulator.ExampleHostApi.playAudio$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,

@@ -115,7 +115,7 @@ private open class MessagesPigeonCodec : StandardMessageCodec() {
 
 /** Generated interface from Pigeon that represents a handler of messages from Flutter. */
 interface ExampleHostApi {
-  fun playAudio(path: String, pitch: Long, speed: Long)
+  fun playAudio(path: String, pitch: Double, speed: Long)
   fun stopAudio()
 
   companion object {
@@ -133,7 +133,7 @@ interface ExampleHostApi {
           channel.setMessageHandler { message, reply ->
             val args = message as List<Any?>
             val pathArg = args[0] as String
-            val pitchArg = args[1] as Long
+            val pitchArg = args[1] as Double
             val speedArg = args[2] as Long
             val wrapped: List<Any?> = try {
               api.playAudio(pathArg, pitchArg, speedArg)

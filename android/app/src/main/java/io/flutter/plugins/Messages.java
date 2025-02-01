@@ -244,7 +244,7 @@ public class Messages {
   /** Generated interface from Pigeon that represents a handler of messages from Flutter. */
   public interface ExampleHostApi {
 
-    void playAudio(@NonNull String path, @NonNull Long pitch, @NonNull Long speed);
+    void playAudio(@NonNull String path, @NonNull Double pitch, @NonNull Long speed);
 
     void stopAudio();
 
@@ -268,7 +268,7 @@ public class Messages {
                 ArrayList<Object> wrapped = new ArrayList<>();
                 ArrayList<Object> args = (ArrayList<Object>) message;
                 String pathArg = (String) args.get(0);
-                Long pitchArg = (Long) args.get(1);
+                Double pitchArg = (Double) args.get(1);
                 Long speedArg = (Long) args.get(2);
                 try {
                   api.playAudio(pathArg, pitchArg, speedArg);
