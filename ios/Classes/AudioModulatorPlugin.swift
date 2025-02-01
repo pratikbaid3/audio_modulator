@@ -10,9 +10,7 @@ public class AudioModulatorPlugin: NSObject, FlutterPlugin, ExampleHostApi{
     private var speedControl = AVAudioUnitVarispeed()
     private var isPlaying = false
     private var errorMessage: String? = nil
-    private var localAudioURL: URL?
 
-    var audioURLString = "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
     public static func register(with registrar: FlutterPluginRegistrar) {
     let instance = AudioModulatorPlugin()
         ExampleHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: instance)
