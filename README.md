@@ -27,8 +27,8 @@ audioModulator.stopAudio();
 ```
 ### Connect with Me
 
-- **LinkedIn:** [linkedin.com/in/pratikbaid](https://www.linkedin.com/in/pratikbaid)
-- **GitHub:** [github.com/pratikbaid](https://github.com/pratikbaid)
+- **LinkedIn:** [Linkedin](https://www.linkedin.com/in/pratik-b-aa253980/)
+- **GitHub:** [GitHub](https://github.com/pratikbaid3)
 
 ### About Me
 
