@@ -19,7 +19,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  pigeon: ^22.7.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -39,7 +38,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.hustlecreatives.audio_modulator
+        package: com.example.audio_modulator
         pluginClass: AudioModulatorPlugin
       ios:
         pluginClass: AudioModulatorPlugin

@@ -1,4 +1,4 @@
-package com.hustlecreatives.audio_modulator
+package com.example.audio_modulator
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

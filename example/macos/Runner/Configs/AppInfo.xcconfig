@@ -8,7 +8,7 @@
 PRODUCT_NAME = audio_modulator_example
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.hustlecreatives.audioModulatorExample
+PRODUCT_BUNDLE_IDENTIFIER = com.example.audioModulatorExample
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.hustlecreatives. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.

@@ -1,4 +1,4 @@
-group = "com.hustlecreatives.audio_modulator"
+group = "com.example.audio_modulator"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -26,7 +26,7 @@ apply plugin: "kotlin-android"
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace = "com.hustlecreatives.audio_modulator"
+        namespace = "com.example.audio_modulator"
     }
 
     compileSdk = 34
